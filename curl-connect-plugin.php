@@ -865,6 +865,7 @@ if ( !class_exists( 'Tipster99' ) ) {
         public function score() {
 
             global $wpdb;
+            $num = 0;
             $before = strtotime(date("Y-m-d",strtotime("-6 day")));
             $limit = strtotime(date("Y-m-d",strtotime("+ 6 day")));
             $end = strtotime(date("Y-m-d",strtotime("+ 2 day")));
@@ -874,7 +875,7 @@ if ( !class_exists( 'Tipster99' ) ) {
             $tomorrowMatches = $wpdb->get_results("SELECT * From today WHERE `time` < '$limit' AND `time` >'$before'  ORDER BY `time` DESC");
             $todayMatches = $wpdb->get_results("SELECT * From today WHERE `time` > '$limit' AND `time` <'$end'  ORDER BY `time` DESC");
 
-            $num = 0;
+
             echo " <table class=\"table\">
                             <thead class=\"tipster99-thstyle\">
                               <tr>
@@ -917,10 +918,8 @@ if ( !class_exists( 'Tipster99' ) ) {
 
                         if(count($oo) > 4)
                             break;
-
                     }
                 }
-
 
 
                 $tt =array_keys($todayTip,max($todayTip))[0];

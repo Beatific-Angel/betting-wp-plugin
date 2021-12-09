@@ -6,7 +6,7 @@
 /*
 * Plugin Name: 99Tipster
 * Plugin URI: https://99tipster.com/
-* Description: This plugin helps tipsters for football
+* Description: This plugin helps tipsters for foddstemptball
 * Version: 1.0.0
 * Author: Web Master
 * License: GPLv3 or later
@@ -111,7 +111,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                   $tips = json_decode($match->tips,true)['data']['predictions'];
                   $todayTip = [];
 
-                  $oo = [];
+                  $oddstemp = [];
                   $kk = [];
                   $todayOdds = [];
                   $todayTip['Home Team'] = $tips['home'];
@@ -134,10 +134,10 @@ if ( !class_exists( 'Tipster99' ) ) {
                       foreach ($kk as $key => $ki){
                           foreach ( $todayOdds as $odd) {
                               if($key == $odd['id'])
-                                  $oo[$key] = $odd;
+                                  $oddstemp[$key] = $odd;
                           }
 
-                          if(count($oo) > 4)
+                          if(count($oddstemp) > 4)
                               break;
 
                       }
@@ -145,24 +145,24 @@ if ( !class_exists( 'Tipster99' ) ) {
 
                   $tt =array_keys($todayTip,max($todayTip))[0];
 
-                if(!empty($oo)){
+                if(!empty($oddstemp)){
                     $num++;
 
                     echo "<tr>";
                     echo "<td class='tipster99-tdstyle1'>".date("H:i",$match->time)."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='tooltiptext'>".$league_name."</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='toddstempltiptext'>".$league_name."</span></td>";
                     echo "<td class='tipster99-tdstyle1 tips-font1'>".$match->home."<b class='tipster99-col-red'>&nbsp;&nbsp;VS&nbsp;&nbsp;</b>".$match->away."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><a href='#'>".$tt."</a><span class='tooltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><a href='#'>".$tt."</a><span class='toddstempltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
                     echo "<td class='tipster99-tdstyle1'><ul class='tipster99-top col-md-12'>";
 
-                         foreach ( $oo as $odd) {
+                         foreach ( $oddstemp as $odd) {
 
-                             if(!empty($odd['bookmarker_log']))
+                             if(!empty($odd['boddstempkmarker_log']))
                                  echo " <li style='width: 20%;'>
                                             <div>
                                             <a href='#'>
                                                 <div>
-                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['bookmarker_log']."'>
+                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['boddstempkmarker_log']."'>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>                                          
    
@@ -175,7 +175,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                                             <div>
                                             <a href='#' class='tipster99-style2'>
                                                 <div>
-                                                    <h5>".$odd['bookmaker']."</h5>
+                                                    <h5>".$odd['boddstempkmaker']."</h5>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>                                          
    
@@ -223,7 +223,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                 $league_name = json_decode($match->league, true)['data']['league_name'];
                 $tips = json_decode($match->tips,true)['data']['predictions'];
                 $todayTip = [];
-                $oo = [];
+                $oddstemp = [];
                 $kk = [];
                 $todayOdds = [];
                 $todayTip['Home Team'] = $tips['home'];
@@ -247,10 +247,10 @@ if ( !class_exists( 'Tipster99' ) ) {
                     foreach ($kk as $key => $ki){
                         foreach ( $todayOdds as $odd) {
                             if($key == $odd['id'])
-                                $oo[$key] = $odd;
+                                $oddstemp[$key] = $odd;
                         }
 
-                        if(count($oo) > 4)
+                        if(count($oddstemp) > 4)
                             break;
 
                     }
@@ -259,24 +259,24 @@ if ( !class_exists( 'Tipster99' ) ) {
 
                 $tt =array_keys($todayTip,max($todayTip))[0];
 
-                if(!empty($oo)){
+                if(!empty($oddstemp)){
                     $num++;
 
                     echo "<tr>";
                     echo "<td class='tipster99-tdstyle1'>".date("m-d H:i",$match->time)."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='tooltiptext'>".$league_name."</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='toddstempltiptext'>".$league_name."</span></td>";
                     echo "<td class='tipster99-tdstyle1 tips-font1'>".$match->home."<b class='tipster99-col-red'>&nbsp;&nbsp;VS&nbsp;&nbsp;</b>".$match->away."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><a href='#'>".$tt."</a><span class='tooltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><a href='#'>".$tt."</a><span class='toddstempltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
                     echo "<td class='tipster99-tdstyle1'><ul class='tipster99-top col-md-12'>";
 
-                    foreach ( $oo as $odd) {
+                    foreach ( $oddstemp as $odd) {
 
-                        if(!empty($odd['bookmarker_log']))
+                        if(!empty($odd['boddstempkmarker_log']))
                             echo " <li style='width: 20%;'>
                                             <div>
                                             <a href='#'>
                                                 <div>
-                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['bookmarker_log']."'>
+                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['boddstempkmarker_log']."'>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -289,7 +289,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                                             <div>
                                             <a href='#' class='tipster99-style2'>
                                                 <div>
-                                                    <h5>".$odd['bookmaker']."</h5>
+                                                    <h5>".$odd['boddstempkmaker']."</h5>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -339,7 +339,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                 $league_name = json_decode($match->league, true)['data']['league_name'];
                 $tips = json_decode($match->tips,true)['data']['predictions'];
                 $todayTip = [];
-                $oo = [];
+                $oddstemp = [];
                 $kk = [];
                 $todayOdds = [];
                 $todayTip['Home Team'] = $tips['home'];
@@ -363,10 +363,10 @@ if ( !class_exists( 'Tipster99' ) ) {
                     foreach ($kk as $key => $ki){
                         foreach ( $todayOdds as $odd) {
                             if($key == $odd['id'])
-                                $oo[$key] = $odd;
+                                $oddstemp[$key] = $odd;
                         }
 
-                        if(count($oo) > 4)
+                        if(count($oddstemp) > 4)
                             break;
 
                     }
@@ -375,24 +375,24 @@ if ( !class_exists( 'Tipster99' ) ) {
 
                 $tt =array_keys($todayTip,max($todayTip))[0];
 
-                if(!empty($oo)){
+                if(!empty($oddstemp)){
                     $num++;
 
                     echo "<tr>";
                     echo "<td class='tipster99-tdstyle1'>".date("H:i",$match->time)."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='tooltiptext'>".$league_name."</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='toddstempltiptext'>".$league_name."</span></td>";
                     echo "<td class='tipster99-tdstyle1 tips-font1'>".$match->home."<b class='tipster99-col-red'>&nbsp;&nbsp;VS&nbsp;&nbsp;</b>".$match->away."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><a href='#'>".$tt."</a><span class='tooltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><a href='#'>".$tt."</a><span class='toddstempltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
                     echo "<td class='tipster99-tdstyle1'><ul class='tipster99-top col-md-12'>";
 
-                    foreach ( $oo as $odd) {
+                    foreach ( $oddstemp as $odd) {
 
-                        if(!empty($odd['bookmarker_log']))
+                        if(!empty($odd['boddstempkmarker_log']))
                             echo " <li style='width: 20%;'>
                                             <div>
                                             <a href='#'>
                                                 <div>
-                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['bookmarker_log']."'>
+                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['boddstempkmarker_log']."'>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -405,7 +405,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                                             <div>
                                             <a href='#' class='tipster99-style2'>
                                                 <div>
-                                                    <h5>".$odd['bookmaker']."</h5>
+                                                    <h5>".$odd['boddstempkmaker']."</h5>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -455,7 +455,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                 $league_name = json_decode($match->league, true)['data']['league_name'];
                 $tips = json_decode($match->tips,true)['data']['predictions'];
                 $todayTip = [];
-                $oo = [];
+                $oddstemp = [];
                 $kk = [];
                 $todayOdds = [];
 
@@ -476,10 +476,10 @@ if ( !class_exists( 'Tipster99' ) ) {
                     foreach ($kk as $key => $ki){
                         foreach ( $todayOdds as $odd) {
                             if($key == $odd['id'])
-                                $oo[$key] = $odd;
+                                $oddstemp[$key] = $odd;
                         }
 
-                        if(count($oo) > 4)
+                        if(count($oddstemp) > 4)
                             break;
 
                     }
@@ -488,24 +488,24 @@ if ( !class_exists( 'Tipster99' ) ) {
 
                 $tt =array_keys($todayTip,max($todayTip))[0];
 
-                if(!empty($oo)){
+                if(!empty($oddstemp)){
                     $num++;
 
                     echo "<tr>";
                     echo "<td class='tipster99-tdstyle1'>".date("m-d H:i",$match->time)."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='tooltiptext'>".$league_name."</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='toddstempltiptext'>".$league_name."</span></td>";
                     echo "<td class='tipster99-tdstyle1 tips-font1'>".$match->home."<b class='tipster99-col-red'>&nbsp;&nbsp;VS&nbsp;&nbsp;</b>".$match->away."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><a href='#'>".$tt."</a><span class='tooltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><a href='#'>".$tt."</a><span class='toddstempltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
                     echo "<td class='tipster99-tdstyle1'><ul class='tipster99-top col-md-12'>";
 
-                    foreach ( $oo as $odd) {
+                    foreach ( $oddstemp as $odd) {
 
-                        if(!empty($odd['bookmarker_log']))
+                        if(!empty($odd['boddstempkmarker_log']))
                             echo " <li style='width: 20%;'>
                                             <div>
                                             <a href='#'>
                                                 <div>
-                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['bookmarker_log']."'>
+                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['boddstempkmarker_log']."'>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -518,7 +518,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                                             <div>
                                             <a href='#' class='tipster99-style2'>
                                                 <div>
-                                                    <h5>".$odd['bookmaker']."</h5>
+                                                    <h5>".$odd['boddstempkmaker']."</h5>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -567,7 +567,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                 $league_name = json_decode($match->league, true)['data']['league_name'];
                 $tips = json_decode($match->tips,true)['data']['predictions'];
                 $todayTip = [];
-                $oo = [];
+                $oddstemp = [];
                 $kk = [];
                 $todayOdds = [];
 
@@ -587,10 +587,10 @@ if ( !class_exists( 'Tipster99' ) ) {
                     foreach ($kk as $key => $ki){
                         foreach ( $todayOdds as $odd) {
                             if($key == $odd['id'])
-                                $oo[$key] = $odd;
+                                $oddstemp[$key] = $odd;
                         }
 
-                        if(count($oo) > 4)
+                        if(count($oddstemp) > 4)
                             break;
 
                     }
@@ -599,24 +599,24 @@ if ( !class_exists( 'Tipster99' ) ) {
 
                 $tt =array_keys($todayTip,max($todayTip))[0];
 
-                if(!empty($oo)){
+                if(!empty($oddstemp)){
                     $num++;
 
                     echo "<tr>";
                     echo "<td class='tipster99-tdstyle1'>".date("m-d H:i",$match->time)."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='tooltiptext'>".$league_name."</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='toddstempltiptext'>".$league_name."</span></td>";
                     echo "<td class='tipster99-tdstyle1 tips-font1'>".$match->home."<b class='tipster99-col-red'>&nbsp;&nbsp;VS&nbsp;&nbsp;</b>".$match->away."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><a href='#'>".$tt."</a><span class='tooltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><a href='#'>".$tt."</a><span class='toddstempltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
                     echo "<td class='tipster99-tdstyle1'><ul class='tipster99-top col-md-12'>";
 
-                    foreach ( $oo as $odd) {
+                    foreach ( $oddstemp as $odd) {
 
-                        if(!empty($odd['bookmarker_log']))
+                        if(!empty($odd['boddstempkmarker_log']))
                             echo " <li style='width: 20%;'>
                                             <div>
                                             <a href='#'>
                                                 <div>
-                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['bookmarker_log']."'>
+                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['boddstempkmarker_log']."'>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -629,7 +629,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                                             <div>
                                             <a href='#' class='tipster99-style2'>
                                                 <div>
-                                                    <h5>".$odd['bookmaker']."</h5>
+                                                    <h5>".$odd['boddstempkmaker']."</h5>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -678,7 +678,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                 $league_name = json_decode($match->league, true)['data']['league_name'];
                 $tips = json_decode($match->tips,true)['data']['predictions'];
                 $todayTip = [];
-                $oo = [];
+                $oddstemp = [];
                 $kk = [];
                 $todayOdds = [];
 
@@ -695,10 +695,10 @@ if ( !class_exists( 'Tipster99' ) ) {
                     foreach ($kk as $key => $ki){
                         foreach ( $todayOdds as $odd) {
                             if($key == $odd['id'])
-                                $oo[$key] = $odd;
+                                $oddstemp[$key] = $odd;
                         }
 
-                        if(count($oo) > 4)
+                        if(count($oddstemp) > 4)
                             break;
 
                     }
@@ -707,24 +707,24 @@ if ( !class_exists( 'Tipster99' ) ) {
 
                 $tt =array_keys($todayTip,max($todayTip))[0];
 
-                if(!empty($oo)){
+                if(!empty($oddstemp)){
                     $num++;
 
                     echo "<tr>";
                     echo "<td class='tipster99-tdstyle1'>".date("m-d H:i",$match->time)."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='tooltiptext'>".$league_name."</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='toddstempltiptext'>".$league_name."</span></td>";
                     echo "<td class='tipster99-tdstyle1 tips-font1'>".$match->home."<b class='tipster99-col-red'>&nbsp;&nbsp;VS&nbsp;&nbsp;</b>".$match->away."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><a href='#'>".$tt."</a><span class='tooltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><a href='#'>".$tt."</a><span class='toddstempltiptext'>".number_format($todayTip[$tt],1)."%</span></td>";
                     echo "<td class='tipster99-tdstyle1'><ul class='tipster99-top col-md-12'>";
 
-                    foreach ( $oo as $odd) {
+                    foreach ( $oddstemp as $odd) {
 
-                        if(!empty($odd['bookmarker_log']))
+                        if(!empty($odd['boddstempkmarker_log']))
                             echo " <li style='width: 20%;'>
                                             <div>
                                             <a href='#'>
                                                 <div>
-                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['bookmarker_log']."'>
+                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['boddstempkmarker_log']."'>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -737,7 +737,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                                             <div>
                                             <a href='#' class='tipster99-style2'>
                                                 <div>
-                                                    <h5>".$odd['bookmaker']."</h5>
+                                                    <h5>".$odd['boddstempkmaker']."</h5>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -786,7 +786,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                 $league_name = json_decode($match->league, true)['data']['league_name'];
                 $tips = json_decode($match->tips,true)['data']['predictions'];
                 $todayTip = [];
-                $oo = [];
+                $oddstemp = [];
                 $kk = [];
                 $todayOdds = [];
 
@@ -803,10 +803,10 @@ if ( !class_exists( 'Tipster99' ) ) {
                     foreach ($kk as $key => $ki){
                         foreach ( $todayOdds as $odd) {
                             if($key == $odd['id'])
-                                $oo[$key] = $odd;
+                                $oddstemp[$key] = $odd;
                         }
 
-                        if(count($oo) > 4)
+                        if(count($oddstemp) > 4)
                             break;
 
                     }
@@ -816,24 +816,24 @@ if ( !class_exists( 'Tipster99' ) ) {
 
                 $tt =array_keys($todayTip,max($todayTip))[0];
 
-                if(!empty($oo)){
+                if(!empty($oddstemp)){
                     $num++;
 
                     echo "<tr>";
                     echo "<td class='tipster99-tdstyle1'>".date("m-d H:i",$match->time)."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='tooltiptext'>".$league_name."</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='toddstempltiptext'>".$league_name."</span></td>";
                     echo "<td class='tipster99-tdstyle1 tips-font1'>".$match->home."<b class='tipster99-col-red'>&nbsp;&nbsp;VS&nbsp;&nbsp;</b>".$match->away."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><a href='#'>".number_format($todayTip[$tt],1)."</a><span class='tooltiptext'>".$tt."</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><a href='#'>".number_format($todayTip[$tt],1)."</a><span class='toddstempltiptext'>".$tt."</span></td>";
                     echo "<td class='tipster99-tdstyle1'><ul class='tipster99-top col-md-12'>";
 
-                    foreach ( $oo as $odd) {
+                    foreach ( $oddstemp as $odd) {
 
-                        if(!empty($odd['bookmarker_log']))
+                        if(!empty($odd['boddstempkmarker_log']))
                             echo " <li style='width: 20%;'>
                                             <div>
                                             <a href='#'>
                                                 <div>
-                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['bookmarker_log']."'>
+                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['boddstempkmarker_log']."'>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -846,7 +846,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                                             <div>
                                             <a href='#' class='tipster99-style2'>
                                                 <div>
-                                                    <h5>".$odd['bookmaker']."</h5>
+                                                    <h5>".$odd['boddstempkmaker']."</h5>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -896,7 +896,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                 $league_name = json_decode($match->league, true)['data']['league_name'];
                 $tips = json_decode($match->tips,true)['data']['predictions'];
                 $todayTip = [];
-                $oo = [];
+                $oddstemp = [];
                 $kk = [];
                 $todayOdds = [];
 
@@ -913,10 +913,10 @@ if ( !class_exists( 'Tipster99' ) ) {
                     foreach ($kk as $key => $ki){
                         foreach ( $todayOdds as $odd) {
                             if($key == $odd['id'])
-                                $oo[$key] = $odd;
+                                $oddstemp[$key] = $odd;
                         }
 
-                        if(count($oo) > 4)
+                        if(count($oddstemp) > 4)
                             break;
                     }
                 }
@@ -924,24 +924,24 @@ if ( !class_exists( 'Tipster99' ) ) {
 
                 $tt =array_keys($todayTip,max($todayTip))[0];
 
-                if(!empty($oo)){
+                if(!empty($oddstemp)){
                     $num++;
 
                     echo "<tr>";
                     echo "<td class='tipster99-tdstyle1'>".date("m-d H:i",$match->time)."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='tooltiptext'>".$league_name."</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><img  width='40px' class='tipster99-leaue' src='".$logo_path."'><span class='toddstempltiptext'>".$league_name."</span></td>";
                     echo "<td class='tipster99-tdstyle1 tips-font1'>".$match->home."<b class='tipster99-col-red'>&nbsp;&nbsp;VS&nbsp;&nbsp;</b>".$match->away."</td>";
-                    echo "<td class='tipster99-tdstyle1 tooltip'><a href='#'>".number_format($todayTip[$tt],1)."</a><span class='tooltiptext'>".$tt."</span></td>";
+                    echo "<td class='tipster99-tdstyle1 toddstempltip'><a href='#'>".number_format($todayTip[$tt],1)."</a><span class='toddstempltiptext'>".$tt."</span></td>";
                     echo "<td class='tipster99-tdstyle1'><ul class='tipster99-top col-md-12'>";
 
-                    foreach ( $oo as $odd) {
+                    foreach ( $oddstemp as $odd) {
 
-                        if(!empty($odd['bookmarker_log']))
+                        if(!empty($odd['boddstempkmarker_log']))
                             echo " <li style='width: 20%;'>
                                             <div>
                                             <a href='#'>
                                                 <div>
-                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['bookmarker_log']."'>
+                                                    <img width='62px' class='tipster99-leaue' src='".home_url().$odd['boddstempkmarker_log']."'>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -954,7 +954,7 @@ if ( !class_exists( 'Tipster99' ) ) {
                                             <div>
                                             <a href='#' class='tipster99-style2'>
                                                 <div>
-                                                    <h5>".$odd['bookmaker']."</h5>
+                                                    <h5>".$odd['boddstempkmaker']."</h5>
                                                 </div>
                                                 <div><span><strong>".$odd['odd_value']."</strong></span></div>
 
@@ -977,10 +977,10 @@ if ( !class_exists( 'Tipster99' ) ) {
 	$curlConnect->register();
 
 	// activation
-	register_activation_hook(__FILE__, array( $curlConnect, 'activate') );
+	register_activation_hoddstempk(__FILE__, array( $curlConnect, 'activate') );
 
 	// deactivate
-	register_deactivation_hook(__FILE__, array( $curlConnect, 'deactivate') );
+	register_deactivation_hoddstempk(__FILE__, array( $curlConnect, 'deactivate') );
 
 
 	function shortcode_todayTips () {

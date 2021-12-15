@@ -648,10 +648,10 @@ if ( !class_exists( 'Tipster99' ) ) {
         public function over35Tip() {
 
             global $wpdb;
-            $before = strtotime(date("Y-m-d",strtotime("-6 day"))." 00:01");
-            $limit = strtotime(date("Y-m-d",strtotime("+ 6 day"))." 00:01");
-            $end = strtotime(date("Y-m-d",strtotime("+ 2 day"))." 00:01");
-            $today = strtotime(date("Y-m-d",strtotime("now"))." 00:01");
+            $before = strtotime(date("Y-m-d",strtotime("-6 day")));
+            $limit = strtotime(date("Y-m-d",strtotime("+ 6 day")));
+            $end = strtotime(date("Y-m-d",strtotime("+ 2 day")));
+            $today = strtotime(date("Y-m-d",strtotime("now")));
 
             $yesterdayMatches = $wpdb->get_results("SELECT * From today WHERE `time` < '$today' AND `time` >'$before'  ORDER BY `time` DESC");
             $tomorrowMatches = $wpdb->get_results("SELECT * From today WHERE `time` < '$limit' AND `time` >'$before'  ORDER BY `time` DESC");

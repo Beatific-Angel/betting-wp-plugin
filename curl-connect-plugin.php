@@ -309,10 +309,10 @@ if ( !class_exists( 'Tipster99' ) ) {
         public function tomoTip() {
 
             global $wpdb;
-            $before = strtotime(date("Y-m-d",strtotime("-1 day"))." 00:01");
-            $limit = strtotime(date("Y-m-d",strtotime("+ 1 day"))." 00:01");
-            $end = strtotime(date("Y-m-d",strtotime("+ 2 day"))." 00:01");
-            $today = strtotime(date("Y-m-d",strtotime("now"))." 00:01");
+            $before = strtotime(date("Y-m-d",strtotime("-1 day")));
+            $limit = strtotime(date("Y-m-d",strtotime("+ 1 day")));
+            $end = strtotime(date("Y-m-d",strtotime("+ 2 day")));
+            $today = strtotime(date("Y-m-d",strtotime("now")));
 
             $yesterdayMatches = $wpdb->get_results("SELECT * From today WHERE `time` < '$today' AND `time` >'$before'");
             $tomorrowMatches = $wpdb->get_results("SELECT * From today WHERE `time` < '$limit' AND `time` >'$today'");

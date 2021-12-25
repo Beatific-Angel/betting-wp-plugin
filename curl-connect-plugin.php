@@ -63,11 +63,6 @@ if ( !class_exists( 'Tipster99' ) ) {
 			Deactivate::deactivate();
 		}
 
-		public function uninstall() {
-			// delete CPT
-			// delete all the plugin data from the DB
-
-		}
 
 		public function enqueue() {
 			// enqueue all our scripts

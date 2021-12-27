@@ -39,7 +39,6 @@ if ( !class_exists( 'Tipster99' ) ) {
 
 			add_action( 'admin_menu', array( $this, 'add_admin_pages' ) ); // Settings Menu
 
-			add_filter("plugin_action_links_$this->plugin" , array($this, 'settings_link') );
 		}
 
 		public function add_admin_pages() {

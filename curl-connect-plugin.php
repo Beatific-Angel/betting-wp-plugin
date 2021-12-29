@@ -10,7 +10,7 @@
 * Version: 1.0.0
 * Author: Web Master
 * License: GPLv3 or later
-*
+* This is free.
 
 */
 

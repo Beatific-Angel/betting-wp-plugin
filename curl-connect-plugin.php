@@ -430,6 +430,7 @@ if ( !class_exists( 'Tipster99' ) ) {
         public function over25Tip() {
 
             global $wpdb;
+            $num = 0;       
             $before = strtotime(date("Y-m-d",strtotime("-6 day"))." 00:01");
             $limit = strtotime(date("Y-m-d",strtotime("+ 6 day"))." 00:01");
             $end = strtotime(date("Y-m-d",strtotime("+ 2 day"))." 00:01");
@@ -439,7 +440,7 @@ if ( !class_exists( 'Tipster99' ) ) {
             $tomorrowMatches = $wpdb->get_results("SELECT * From today WHERE `time` < '$limit' AND `time` >'$before'   ORDER BY `time` DESC ");
             $todayMatches = $wpdb->get_results("SELECT * From today WHERE `time` > '$limit' AND `time` <'$end'   ORDER BY `time` DESC ");
 
-            $num = 0;
+
             echo " <table class=\"table\">
                             <thead class=\"tipster99-thstyle\">
                               <tr>
